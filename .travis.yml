@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t adeaver16/udemy-docker -f Dockerfile.dev .
+
+# runs the tests
+script:
+    - docker run adeaver16/udemy-docker npm run test -- --coverage
